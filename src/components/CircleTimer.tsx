@@ -1,6 +1,7 @@
 import React from 'react';
-import {} from 'react-native';
 import {Svg, Circle} from 'react-native-svg';
+import {Container, AbsoluteContainer} from './container';
+import {theme} from 'style/theme';
 
 export interface ICircleTimer {
   width: number;

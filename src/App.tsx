@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, SafeAreaView, StyleSheet} from 'react-native';
 import {Provider} from 'react-redux';
 
 import {ThemeProvider} from 'styled-components/native';
@@ -15,16 +15,24 @@ const App = () => {
     <>
       <StatusBar
         barStyle="light-content"
-        translucent
-        backgroundColor="transparent"
+        backgroundColor={theme.colors.secondary}
       />
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <HomePage />
+          <SafeAreaView style={styles.container}>
+            <HomePage />
+          </SafeAreaView>
         </ThemeProvider>
       </Provider>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: theme.colors.secondary,
+  },
+});
 
 export default App;

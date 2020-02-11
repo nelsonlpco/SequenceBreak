@@ -1,15 +1,13 @@
-export type Coord = {
-  x: number;
-  y: number;
-};
+import {Coord, Size} from 'store/types';
 
-export type Size = {
-  width: number;
-  height: number;
-};
-
-export interface IPlayAnimationManagerState {
+export class PlayAnimationManagerState {
   coord: Coord;
   size: Size;
   isPlaying: boolean;
+
+  constructor(coord: Coord, size: Size, isPlaying: boolean) {
+    this.coord = coord;
+    this.size = size;
+    this.isPlaying = isPlaying;
+  }
 }

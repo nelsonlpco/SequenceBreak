@@ -1,32 +1,34 @@
 import styled from 'styled-components/native';
+import {theme} from 'style/theme';
 
-export const Container = styled.View`
-  flex: 1;
-  background-color: ${({theme}) => theme.colors.secondary};
-`;
+export interface IContainer {
+  flex?: number;
+  justifyContent?: string;
+  alignItems?: string;
+  bgColor?: string;
+}
 
-export const TimerContainer = styled.View`
-  flex: 2;
+export interface IAbsoluteContainer extends IContainer {
+  layer?: number;
+  top?: number | string;
+  left?: number;
+  alignSelf?: string;
+}
+
+export const Container = styled.View<IContainer>`
   position: relative;
-  justify-content: center;
-  align-items: center;
+  flex: ${({flex}) => (flex ? flex : 1)};
+  background-color: ${({bgColor, theme}) =>
+    bgColor ? bgColor : theme.colors.transparent};
+  ${({justifyContent}) =>
+    justifyContent ? `justify-content: ${justifyContent}` : undefined}
+  ${({alignItems}) => (alignItems ? `align-items: ${alignItems}` : undefined)}
 `;
 
-export const ClockContainer = styled.View`
+export const AbsoluteContainer = styled(Container)<IAbsoluteContainer>`
   position: absolute;
-  width: 255px;
-  height: 255px;
-  background-color: ${({theme}) => theme.colors.primary};
-  border-radius: 360px;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const MenuContainer = styled.View`
-  flex: 1;
-  overflow: scroll;
-  position: relative;
-  background-color: ${({theme}) => theme.colors.primary};
-  border-top-left-radius: 33px;
-  border-top-right-radius: 33px;
+  z-index: ${({layer, theme}) => (layer ? layer : theme.layers.l1)};
+  top: ${({top}) => (top ? top : 0)};
+  align-self: ${({alignSelf}) => alignSelf || 'auto'};
+  ${({left}) => (left ? `left: ${left}` : undefined)};
 `;
