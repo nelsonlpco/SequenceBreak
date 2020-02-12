@@ -34,7 +34,8 @@ const PlayButton: React.FC<IPlayButton> = ({isActive}) => {
   const startAnimation = () => {
     Animated.timing(animeValue, {
       toValue: 200,
-      duration: 500,
+      duration: 250,
+      useNativeDriver: true,
       easing: Easing.ease,
     }).start();
   };
@@ -42,7 +43,8 @@ const PlayButton: React.FC<IPlayButton> = ({isActive}) => {
   const stopAnimation = () => {
     Animated.timing(animeValue, {
       toValue: 0,
-      duration: 500,
+      duration: 250,
+      useNativeDriver: true,
       easing: Easing.ease,
     }).start();
   };
@@ -73,21 +75,14 @@ const PlayButton: React.FC<IPlayButton> = ({isActive}) => {
         inputRange: [0, 200],
         outputRange: [1, 0],
       }),
-      backgroundColor: animeValue.interpolate({
-        inputRange: [0, 200],
-        outputRange: [
-          isActive ? theme.colors.action : theme.colors.terceary,
-          theme.colors.create,
-        ],
-      }),
-      width: animeValue.interpolate({
-        inputRange: [0, 200],
-        outputRange: [81, 60],
-      }),
-      height: animeValue.interpolate({
-        inputRange: [0, 200],
-        outputRange: [81, 60],
-      }),
+      // width: animeValue.interpolate({
+      //   inputRange: [0, 200],
+      //   outputRange: [81, 60],
+      // }),
+      // height: animeValue.interpolate({
+      //   inputRange: [0, 200],
+      //   outputRange: [81, 60],
+      // }),
     },
   };
 

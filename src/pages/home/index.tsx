@@ -8,7 +8,7 @@ import {theme} from 'style/theme';
 const HomePage: React.FC = () => {
   return (
     <Container>
-      <Container flex={2} alignItems="center" justifyContent="center">
+      <Container flex={1} alignItems="center" justifyContent="center">
         <Clock />
       </Container>
       <ActionList />

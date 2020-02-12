@@ -17,35 +17,11 @@ const Button: React.FC<IButton> = ({
   Icon,
   size,
   onLayout,
+  ...args
 }) => {
-  const dispatch = useDispatch();
-  let view = useRef<null | TouchableOpacity>(null);
-
-  // const measured = useSelector(
-  //   (state: AppState) => state.PlayManagerReducer.stopSize,
-  // );
-
-  // const onLa = (e: LayoutChangeEvent) => {
-  //   if (view.current != null && measured.height === 0) {
-  //     view.current.measure(
-  //       (
-  //         ox: number,
-  //         oy: number,
-  //         width: number,
-  //         height: number,
-  //         px: number,
-  //         py: number,
-  //       ) => {
-  //         console.log(ox, oy, width, height, px, py);
-  //         dispatch(setStopLayout({x: px, y: py}, {width, height}));
-  //       },
-  //     );
-  //   }
-  // };
-
   return (
     <ButtonContainer
-      ref={view}
+      {...args}
       bgColor={bgColor}
       onPress={onPress}
       size={size}
