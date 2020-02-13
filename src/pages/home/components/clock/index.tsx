@@ -4,6 +4,7 @@ import {Container, AbsoluteContainer} from 'components/container';
 import CircleTimer from 'components/CircleTimer';
 import {theme} from 'style/theme';
 import PlayButton from '../play';
+import Timer from './timer';
 
 const Clock: React.FC = () => {
   return (
@@ -33,6 +34,7 @@ const Clock: React.FC = () => {
         style={{width: '100%', height: '100%'}}
         justifyContent="center"
         alignItems="center">
+        <Timer />
         <PlayButton isActive={true} />
       </AbsoluteContainer>
     </Container>
