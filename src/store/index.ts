@@ -1,16 +1,13 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux';
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
-import {PlayAnimationManagerReducer} from './play-animation-manager';
-import {composeWithDevTools} from 'redux-devtools-extension';
+import AppManagerReducer from "./app-manager/reducers";
 
-const rootReducer = combineReducers({
-  PlayAnimationManagerReducer,
-});
+const rootReducer = combineReducers({ AppManagerReducer });
 
 export type AppState = ReturnType<typeof rootReducer>;
 
 export function configureStore() {
-  const middlewareEnhancer = applyMiddleware();
   const store = createStore(rootReducer, composeWithDevTools());
 
   return store;
