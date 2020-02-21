@@ -2,21 +2,24 @@ import React, { useRef, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Animated } from "react-native";
 import { SvgXml } from "react-native-svg";
+import { useNavigation } from "@react-navigation/native";
 
 import { getStartPlayAnimation } from "store/app-manager/selectors";
 import { Icons } from "components/icons";
 import { AddButtonContainer } from "./style";
+import { routes } from "../../../../../routes";
 
 const AnimatedButton = Animated.createAnimatedComponent(AddButtonContainer);
 
 const AddButton: React.FC = () => {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const animationValue = useRef(new Animated.Value(0)).current;
 
   const startPlayAnimation = useSelector(getStartPlayAnimation);
 
   const onPressStopHandler = useCallback(() => {
-    console.warn("Add item");
+    navigation.navigate(routes.CONFIGURE);
   }, [dispatch]);
 
   useEffect(() => {
