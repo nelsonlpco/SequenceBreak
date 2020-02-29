@@ -9,8 +9,17 @@ export const ClockContainer = styled(Container)`
   max-height: 188px;
 `;
 
-export const ClockAbsoluteContainer = styled(ClockContainer)`
+export const ClockBackground = styled.View`
   position: absolute;
   z-index: ${({ theme }) => theme.layers.l1};
+  background-color: ${({ theme }) => theme.colors.secondaryBg};
+  width: 255px;
+  height: 255px;
+  border-radius: 360px;
+`;
+
+export const ClockAbsoluteContainer = styled(ClockContainer)`
+  position: absolute;
+  z-index: ${({ theme }) => theme.layers.l3};
   background-color: ${({ theme }) => theme.colors.transparent};
 `;

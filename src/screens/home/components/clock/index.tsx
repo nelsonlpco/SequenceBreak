@@ -1,7 +1,11 @@
 import React from "react";
 
 import AnimatedLoaderCircle from "components/animated-loader-circle";
-import { ClockContainer, ClockAbsoluteContainer } from "./styles";
+import {
+  ClockContainer,
+  ClockAbsoluteContainer,
+  ClockBackground
+} from "./styles";
 import PlayButton from "../play-button";
 import { useTheme } from "../../../../hooks/useTheme";
 
@@ -10,6 +14,7 @@ const Clock: React.FC = () => {
 
   return (
     <ClockContainer>
+      <ClockBackground />
       <ClockAbsoluteContainer>
         <AnimatedLoaderCircle
           bgColor={theme.colors.empty}

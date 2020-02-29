@@ -7,7 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import { getStartPlayAnimation } from "store/app-manager/selectors";
 import { Icons } from "components/icons";
 import { AddButtonContainer } from "./style";
-import { routes } from "../../../../../routes";
+import { paths } from "../../../../../routes/paths";
 
 const AnimatedButton = Animated.createAnimatedComponent(AddButtonContainer);
 
@@ -19,7 +19,7 @@ const AddButton: React.FC = () => {
   const startPlayAnimation = useSelector(getStartPlayAnimation);
 
   const onPressStopHandler = useCallback(() => {
-    navigation.navigate(routes.CONFIGURE);
+    navigation.navigate(paths.CONFIGURE);
   }, [dispatch]);
 
   useEffect(() => {
