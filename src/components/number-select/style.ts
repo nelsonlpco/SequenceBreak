@@ -22,12 +22,12 @@ export const NumberContainer = styled.View`
   position: relative;
   height: 44px;
   border-width: 1px;
-  border-color: red;
+  border-color: blue;
 `;
 
 export const NumberContainerAbsolute = styled.View`
   position: absolute;
   height: 44px;
   border-width: 1px;
-  border-color: red;
+  border-color: blue;
 `;

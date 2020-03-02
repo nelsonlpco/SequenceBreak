@@ -8,7 +8,7 @@ const NumberSelect: React.FC = () => {
 
   return (
     <NumberSelectContainer>
-      <Ticker />
+      <Ticker value={10} />
     </NumberSelectContainer>
   );
 };

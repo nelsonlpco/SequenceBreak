@@ -1,6 +1,12 @@
-import React, { useRef, useMemo, useCallback } from "react";
+import React, { useRef, useMemo, useCallback, useEffect } from "react";
 import { Animated } from "react-native";
-import { LabelNumber } from "../style";
+import {
+  PanGestureHandler,
+  State,
+  PanGestureHandlerStateChangeEvent
+} from "react-native-gesture-handler";
+
+import { LabelNumber, NumberTickerRow } from "../style";
 
 interface INumberTicker {
   height: number;
@@ -14,13 +20,54 @@ const numbersRange = Array(99)
 const NumberTicker: React.FC<INumberTicker> = ({ height, value }) => {
   const animationValue = useRef(new Animated.Value(0)).current;
 
-  const renderNumbers = useMemo(() => {
-    numbersRange.map(number => (
-      <LabelNumber key={number}>{number}</LabelNumber>
-    ));
-  }, [numbersRange]);
+  useEffect(() => {
+    Animated.timing(animationValue, {
+      toValue: height * value * -1,
+      duration: 500,
+      delay: 500,
+      useNativeDriver: true
+    }).start();
+  }, [value]);
 
-  return <Animated.View>{renderNumbers}</Animated.View>;
+  const onGestureEvent = Animated.event([
+    {
+      nativeEvent: {
+        translationY: animationValue
+      }
+    }
+  ]);
+
+  const handlerStateChange = (
+    event: PanGestureHandlerStateChangeEvent
+  ): void => {
+    if (event.nativeEvent.oldState === State.ACTIVE) {
+      console.warn(event.nativeEvent.y);
+    }
+  };
+
+  return (
+    <NumberTickerRow style={{ height: height * 99 }}>
+      <PanGestureHandler
+        onGestureEvent={onGestureEvent}
+        onHandlerStateChange={handlerStateChange}
+      >
+        <Animated.View
+          style={{
+            backgroundColor: "red",
+            transform: [
+              {
+                translateY: animationValue
+              }
+            ]
+          }}
+        >
+          {numbersRange.map(n => (
+            <LabelNumber key={n}>{n}</LabelNumber>
+          ))}
+        </Animated.View>
+      </PanGestureHandler>
+    </NumberTickerRow>
+  );
 };
 
 export default NumberTicker;

@@ -2,5 +2,5 @@ projectKey=sequence_break
 serverUrl=http://localhost:9000
 serverVersion=8.2.0.32929
 dashboardUrl=http://localhost:9000/dashboard?id=sequence_break
-ceTaskId=AXCS-o07Qifg7o9tH6Le
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXCS-o07Qifg7o9tH6Le
+ceTaskId=AXCXgCZBQifg7o9tH6Lg
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXCXgCZBQifg7o9tH6Lg

@@ -11,7 +11,7 @@ export const NumberTickerRow = styled.View`
   overflow: hidden;
   flex-direction: row;
   border-width: 1px;
-  border-color: red;
+  border-color: yellow;
 `;
 
 export const LabelNumber = styled.Text`

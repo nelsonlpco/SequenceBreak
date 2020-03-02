@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Blank Template (TypeScript)",
+    "name": "Sequence Break",
     "slug": "SequenceBreaker",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -18,7 +18,11 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nldev.sequencebreak"
+    },
+    "android": {
+      "package": "com.nldev.sequencebreak"
     }
   }
 }

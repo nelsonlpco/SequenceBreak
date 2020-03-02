@@ -1,11 +1,13 @@
 import React, { useState, useRef, useMemo, useCallback } from "react";
 import { Animated, View, LayoutChangeEvent } from "react-native";
+
 import {
   LabelNumber,
   TickerContainer,
   NumberTickerRow,
   MeasureContinerText
 } from "./style";
+import NumberTicker from "./number-ticker";
 
 interface ITicker {
   value: number;
@@ -38,7 +40,7 @@ const Ticker: React.FC<ITicker> = ({ value }) => {
   return (
     <TickerContainer>
       <NumberTickerRow style={styles.NumberTickerRowContainer}>
-        <LabelNumber>0</LabelNumber>
+        <NumberTicker height={height} value={value} />
       </NumberTickerRow>
       <MeasureContinerText onLayout={handleLayout}>0</MeasureContinerText>
     </TickerContainer>
